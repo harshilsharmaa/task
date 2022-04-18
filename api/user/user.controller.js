@@ -9,15 +9,10 @@ const Order = db.order;
 exports.order = async (req, res) => {
     try {
 
-        console.log("chal gaya");
-
         const orderID = uuidv4();
 
         const salt = await bcrypt.genSalt(15);
         const order_id = await bcrypt.hash(orderID, salt);
-
-        console.log(order_id);
-        console.log("chal gaya 2");
 
         const paymentData = {
             merchant_id:req.body.merchant_id,
